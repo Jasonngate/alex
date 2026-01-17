@@ -1,0 +1,135 @@
+/* =========================
+   GLOBAL APP SHELL
+   (Does NOT fight page layouts)
+========================= */
+
+:root {
+  --bg: #070707;
+  --text: #ffffff;
+  --muted: #a1a1aa;
+  --accent: #a855f7;
+  --glass: rgba(255,255,255,0.08);
+}
+
+/* ---------- ROOT ---------- */
+.app-root {
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Inter", system-ui, sans-serif;
+}
+
+/* ---------- HEADER ---------- */
+.app-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  background: rgba(7,7,7,0.55);
+  backdrop-filter: blur(14px);
+}
+
+/* Header scroll state */
+.app-header.scrolled {
+  background: rgba(7,7,7,0.92);
+  backdrop-filter: blur(18px);
+}
+
+/* remove fade when scrolled */
+.app-header.scrolled::after {
+  opacity: 0;
+}
+
+
+.app-header::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 100%;
+  height: 8px;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.12),
+    transparent
+  );
+  pointer-events: none;
+}
+
+
+
+.nav {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 18px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand a {
+  font-weight: 800;
+  font-size: 1.15rem;
+  color: var(--text);
+  text-decoration: none;
+  letter-spacing: 0.3px;
+}
+
+.site-nav {
+  display: flex;
+  gap: 26px;
+}
+
+.site-nav a {
+  color: rgba(255,255,255,0.7);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  position: relative;
+  padding: 4px 0;
+}
+
+/* underline hover (clean, modern) */
+.site-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), #22d3ee);
+  transition: width 0.3s ease;
+}
+
+.site-nav a:hover {
+  color: white;
+}
+
+.site-nav a:hover::after {
+  width: 100%;
+}
+
+/* ---------- MAIN ---------- */
+/* NO container, NO padding except header offset */
+.main-content {
+  padding-top: 90px; /* header height */
+}
+
+/* ---------- FOOTER ---------- */
+.footer {
+  text-align: center;
+  padding: 80px 20px 40px;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.45);
+}
+
+/* ---------- GLOBAL MEDIA ---------- */
+@media (max-width: 900px) {
+  .nav {
+    padding: 16px 24px;
+  }
+
+  .site-nav {
+    gap: 18px;
+  }
+}

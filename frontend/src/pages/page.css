@@ -1,0 +1,30 @@
+/* Page styles build on the global variables from index.css */
+.page{padding:18px 0}
+.card{background:var(--surface);padding:18px;border-radius:12px;box-shadow:0 8px 24px rgba(11,36,71,0.04);border:1px solid var(--glass);margin-bottom:16px}
+.muted{color:var(--muted)}
+.lead{font-size:1.05rem;color:var(--muted);margin:6px 0}
+
+.hero{display:flex;flex-direction:column;align-items:flex-start;gap:8px;padding:18px 0}
+.hero h1{margin:0;font-size:2rem;color:var(--text);line-height:1.05}
+.hero p{margin:0;color:var(--muted)}
+.hero-actions .btn{margin-right:10px}
+
+.contact-form{display:flex;flex-direction:column;gap:10px}
+.contact-form label{display:flex;flex-direction:column;font-size:14px}
+.contact-form input,.contact-form textarea{padding:10px;border-radius:10px;border:1px solid var(--glass);background:transparent}
+
+.filters{display:flex;gap:8px;margin:12px 0}
+.filters button{background:transparent;border:1px solid var(--glass);padding:8px 12px;border-radius:999px;color:var(--muted);cursor:pointer}
+.filters button.active{background:var(--accent);color:white;border-color:var(--accent-600)}
+
+.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+.video-card .video-preview{height:200px;border-radius:8px;overflow:hidden}
+
+.btn{display:inline-flex;align-items:center;padding:8px 12px;border-radius:10px;border:1px solid var(--glass);text-decoration:none;color:var(--text);background:transparent}
+.btn.primary{background:var(--accent);color:white;border:none}
+.btn.small{padding:6px 8px;font-size:13px}
+
+@media (max-width:720px){
+  .gallery{grid-template-columns:repeat(auto-fill,minmax(200px,1fr))}
+  .hero h1{font-size:1.5rem}
+}
